@@ -12,7 +12,7 @@ def print_hello():
     return 'Hello world!'
 
 dag = DAG('hello_world', description='Simple tutorial DAG',
-          schedule_interval='0 12 * * *',
+          schedule_interval='*/10 * * * *',
           start_date=datetime(2020, 2, 6), catchup=False)
 
 dummy_operator = DummyOperator(task_id='dummy_task', retries=3, dag=dag)
